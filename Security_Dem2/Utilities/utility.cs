@@ -9,7 +9,10 @@ namespace Security_Dem2.Utilities
     {
         public string CreateToken(List<Claim> claims, DateTime expiresAt,string secretKey)
         {
-            var key=Encoding.ASCII.GetBytes(secretKey);
+            //Below are the 2 nuget package required
+            //Microsoft.AspNetCore.Authentication.JwtBearer
+            //System.IdentityModel.Tokens.Jwt
+            var key =Encoding.ASCII.GetBytes(secretKey);
             var jwt = new JwtSecurityToken(
                     claims: claims,
                     notBefore: DateTime.Now,
